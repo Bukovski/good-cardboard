@@ -1,0 +1,34 @@
+%svg-common {
+	background: url("../image/sprite/sprite.svg") no-repeat;
+}
+
+svg-sprite-arrow-big {
+	@extend %svg-common;
+	background-position: 99.92700644451124% 0;
+}
+
+svg-sprite-arrow-big-dims {
+	width: 10.626px;
+	height: 47.379px;
+}
+
+svg-sprite-arrow-small {
+	@extend %svg-common;
+	background-position: 99.0487834604008% 9.600277194098682%;
+}
+
+svg-sprite-arrow-small-dims {
+	width: 6.083px;
+	height: 18.483px;
+}
+
+svg-sprite-call-phone-ico {
+	@extend %svg-common;
+	background-position: 0 0;
+}
+
+svg-sprite-call-phone-ico-dims {
+	width: 512px;
+	height: 512px;
+}
+

@@ -3,6 +3,7 @@ window.onload = (function () {
   console.log("my code")
   
   const arrowSlider = '<svg class="header-main__btn-icon"><use xlink:href="#arrow-small"></use></svg>';
+  const arrowSliderBigger = '<svg class="slider__btn-icon"><use xlink:href="#arrow-small"></use></svg>';
   
   $('#production-slider-js').slick({
     infinite: true,
@@ -45,6 +46,35 @@ window.onload = (function () {
         breakpoint: 992,
         settings: {
           slidesToShow: 2,
+        }
+      },
+    ]
+  });
+  
+  
+  $('#feedback-slider-js').slick({
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    prevArrow: '<button class="feedback__arrow-prev">' + arrowSlider + '</button>',
+    nextArrow: '<button class="feedback__arrow-next">' + arrowSlider + '</button>',
+    arrows: true,
+    focusOnSelect: true,
+    centerPadding: '1%',
+    centerMode: true,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          prevArrow: '<button class="production-slider__arrow-prev">' + arrowSlider + '</button>',
+          nextArrow: '<button class="production-slider__arrow-next">' + arrowSlider + '</button>',
         }
       },
     ]

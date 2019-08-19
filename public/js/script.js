@@ -5,6 +5,8 @@ window.onload = (function () {
   const arrowSlider = '<svg class="header-main__btn-icon"><use xlink:href="#arrow-small"></use></svg>';
   const arrowSliderBigger = '<svg class="slider__btn-icon"><use xlink:href="#arrow-small"></use></svg>';
   
+  /*********************** слайдер верхний сдвоенный ***********************/
+  
   $('#production-slider-js').slick({
     infinite: true,
     slidesToShow: 1,
@@ -51,6 +53,7 @@ window.onload = (function () {
     ]
   });
   
+  /*********************** слайдер нижний ***********************/
   
   $('#feedback-slider-js').slick({
     infinite: true,
@@ -80,5 +83,29 @@ window.onload = (function () {
     ]
   });
   
+  /*********************** яндекс карта ***********************/
+  
+    // ymaps.ready(init);
+    
+    function init() {
+      var map = new ymaps.Map("map-yandex-js", {
+        center: [ 54.75265557, 56.00205250 ],
+        zoom: 17,
+        controls: [ "zoomControl" ],
+        behaviors: [ "drag" ]
+      });
+      
+      var placemark = new ymaps.Placemark([ 54.75267419, 56.00203641 ], { //ставим метку на карте
+          balloonContent: "Добрый картон",
+          iconCaption: "Проспект октября, 46"
+        },
+        {
+          preset: 'islands#blueCircleDotIcon'
+        });
+      
+      map.geoObjects.add(placemark);
+    }
+  
   
 })();
+

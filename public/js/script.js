@@ -1,11 +1,101 @@
 window.onload = (function () {
   /*********************** my code ***********************/
-  console.log("my code")
+  console.log("my code");
   
-  const arrowSlider = '<svg class="header-main__btn-icon"><use xlink:href="#arrow-small"></use></svg>';
-  const arrowSliderBigger = '<svg class="slider__btn-icon"><use xlink:href="#arrow-small"></use></svg>';
+  /************** плавный скролл до якоря ****************/
+  $("a[href^='#']").click(function(){
+    var _href = $(this).attr("href");
+    
+    $("html, body").animate({scrollTop: $(_href).offset().top+"px"}, 1500);
+    return false;
+  });
+  
+  /************** подсветка активных пунктов меню при скроле ****************/
+  
+  function activeSectionMenuScroll(scroll) {
+    var sections = $('section, header, footer')
+      , nav = $('nav')
+      , scroll = scroll || $(document).scrollTop()
+      , navHeight = nav.outerHeight();
+    
+    sections.each(function () {
+      var topSection = $(this).offset().top - navHeight
+        , bottomSection = topSection + $(this).outerHeight();
+      
+      if (scroll >= topSection && scroll <= bottomSection) {
+        nav.find('li').removeClass('header-menu__item--active');
+        nav.find('a[href="#' + $(this).attr('id') + '"]').parent().addClass('header-menu__item--active');
+      }
+    });
+  }
+  
+  activeSectionMenuScroll();
+  
+  /************** фиксированное мини-меню при скроле ****************/
+  
+  function toggleShowMenu() {
+    var widthScreen = $(window).width()
+      , topHeight = 200 //высота от верха страницы для показа меню в начале страницы
+      , bufferScroll = 0
+      , menuOpen = false
+      , menuClose = false;
+    
+    function showMenu() {
+      $('.header-menu').removeClass('header-menu--hide');
+      menuClose = false;
+    }
+    
+    function hideMenu() {
+      $('.header-menu').addClass('header-menu--hide');
+      menuOpen = false;
+    }
+    
+    return function (scroll) {
+      if (widthScreen >= 1024) {
+        var currentScroll = scroll || $(document).scrollTop();
+        
+        //начали крутить вверх или вниз.
+        if (currentScroll > bufferScroll) { menuOpen = true; }
+        if (currentScroll < bufferScroll) { menuClose = true; }
+  
+        //первый раз крутим вверх/вниз. Остальные блокируем
+        if (menuOpen && currentScroll < bufferScroll) { hideMenu(); }
+        if (menuClose && currentScroll > bufferScroll) { showMenu(); }
+        
+        //показываем когда дошли до верха страницы
+        if (currentScroll < topHeight) { showMenu(); }
+        
+        bufferScroll = currentScroll //обновляем данные для прошлого скрола
+      }
+    };
+  }
+  
+  var hideMenu = toggleShowMenu();
+  
+  /************** скролл события ****************/
+  
+  var counter = 0;
+  
+  $(window).scroll(function() {
+    var scroll = $(document).scrollTop();
+    
+    const interval = setTimeout(function () { //нужно для сокращения количества запросов (экономия памяти)
+      hideMenu(scroll);
+      activeSectionMenuScroll(scroll);
+      
+      counter = 0;
+    }, 120);
+    
+    counter++;
+    
+    if (counter > 1) {
+      clearInterval(interval);
+    }
+  });
   
   /*********************** слайдер верхний сдвоенный ***********************/
+  
+  const arrowSlider = '<svg class="header-main__btn-icon"><use xlink:href="#arrow-small"></use></svg>';
   
   $('#production-slider-js').slick({
     infinite: true,

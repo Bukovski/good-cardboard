@@ -14,7 +14,7 @@ window.onload = (function () {
   
   function activeSectionMenuScroll(scroll) {
     var sections = $('section, header, footer')
-      , nav = $('nav')
+      , nav = $('.header-menu__list')
       , scroll = scroll || $(document).scrollTop()
       , navHeight = nav.outerHeight();
     
@@ -51,7 +51,7 @@ window.onload = (function () {
     }
     
     return function (scroll) {
-      if (widthScreen >= 1024) {
+      if (widthScreen >= 768) {
         var currentScroll = scroll || $(document).scrollTop();
         
         //начали крутить вверх или вниз.
@@ -91,6 +91,35 @@ window.onload = (function () {
     if (counter > 1) {
       clearInterval(interval);
     }
+  });
+  
+  /************** hamburger mobile menu ****************/
+    //hamburger toggle click
+  var $body = $('body'),
+    $hamburger = $("#js-hamburger");
+  
+  $hamburger.on("click", function () {
+    $(this).addClass("is-active")
+  });
+  
+  function closeHamburger () {
+    return $hamburger.removeClass("is-active");
+  }
+  
+  $(".site-overlay").on("click", function () {
+    closeHamburger();
+  });
+  
+  $(".header-menu__list").clone().appendTo("#mobile-menu"); //клонируем меню с шапки в мобильное меню
+  $("#mobile-menu").find("*").attr("style", ""); //очищаем от встроеных стилей
+  
+  //open close mobile menu if you click a link
+  $(".header-menu__item").on('click touchstart', function() {
+    if ($('.pushy').hasClass('pushy-left')) {
+      $body.removeClass('pushy-open-left');
+    }
+    
+    closeHamburger();
   });
   
   /*********************** слайдер верхний сдвоенный ***********************/

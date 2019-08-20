@@ -46,7 +46,8 @@ const PATH = {
   ], //поддержка старыми браузерами
   scriptLibs: [
     PROJECT_FOLDERS.START + "_libs/jquery/dist/jquery.min.js",
-    PROJECT_FOLDERS.START + "_libs/slick-carousel/slick/slick.min.js"
+    PROJECT_FOLDERS.START + "_libs/slick-carousel/slick/slick.min.js",
+    PROJECT_FOLDERS.START + "_libs/pushy/js/pushy.min.js",
   ], //подключаем свои библиотеки
   scriptInput: [
     PROJECT_FOLDERS.START + "js/**/*.js"
@@ -210,12 +211,8 @@ function imageResponsive () { //создлает миниатюры изобра
           rename: { suffix: '-1280' }
         }, {
           quality: 90,
-          width: 760,
-          rename: { suffix: '-640' }
-        }, {
-          quality: 90,
-          width: 500,
-          rename: { suffix: '-480' }
+          width: 960,
+          rename: { suffix: '-768' }
         }
       ]}))
     .pipe(gulp.dest(PATH.imageResponsiveOutput)); //куда сохраняем миниатюры

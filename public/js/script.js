@@ -32,23 +32,28 @@ window.onload = (function () {
   
   function toggleShowMenu() {
     var widthScreen = $(window).width()
+      , menuSelector = ".header-menu"
       , topHeight = 200 //высота от верха страницы для показа меню в начале страницы
       , bufferScroll = 0
       , menuOpen = false
       , menuClose = false;
     
+    if (widthScreen <= 768) {
+      menuSelector = ".header-main"
+    }
+    
     function showMenu() {
-      $('.header-menu').removeClass('header-menu--hide');
+      $(menuSelector).removeClass('header-menu--hide');
       menuClose = false;
     }
     
     function hideMenu() {
-      $('.header-menu').addClass('header-menu--hide');
+      $(menuSelector).addClass('header-menu--hide');
       menuOpen = false;
     }
     
+    
     return function (scroll) {
-      if (widthScreen >= 768) {
         var currentScroll = scroll || $(document).scrollTop();
         
         //начали крутить вверх или вниз.
@@ -63,7 +68,6 @@ window.onload = (function () {
         if (currentScroll < topHeight) { showMenu(); }
         
         bufferScroll = currentScroll //обновляем данные для прошлого скрола
-      }
     };
   }
   
@@ -297,6 +301,9 @@ window.onload = (function () {
       });
     })
   }
+  
+  /*********************** hide preloader ***********************/
+  $("#js-preloader").fadeOut(500);
   
 })();
 

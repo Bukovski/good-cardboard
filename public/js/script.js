@@ -1,7 +1,4 @@
 window.onload = (function () {
-  /*********************** my code ***********************/
-  console.log("my code");
-  
   /************** плавный скролл до якоря ****************/
   $("a[href^='#']").click(function(){
     var _href = $(this).attr("href");
@@ -78,8 +75,8 @@ window.onload = (function () {
   
   $(window).scroll(function() {
     var scroll = $(document).scrollTop();
-    
-    const interval = setTimeout(function () { //нужно для сокращения количества запросов (экономия памяти)
+  
+    var interval = setTimeout(function () { //нужно для сокращения количества запросов (экономия памяти)
       hideMenu(scroll);
       activeSectionMenuScroll(scroll);
       
@@ -178,7 +175,7 @@ window.onload = (function () {
   
   /*********************** слайдер верхний сдвоенный ***********************/
   
-  const arrowSlider = '<svg class="header-main__btn-icon"><use xlink:href="#arrow-small"></use></svg>';
+  var arrowSlider = '<svg class="header-main__btn-icon"><use xlink:href="#arrow-small"></use></svg>';
   
   $('#production-slider-js').slick({
     infinite: true,
@@ -288,19 +285,18 @@ window.onload = (function () {
   // <img class="feedback__image" data-bp="./image/feedback/1big.jpg" src="./image/feedback/1.jpg" alt="отзыв">
   // <img class="feedback__image" data-bp="./image/feedback/2big.jpg" src="./image/feedback/2.jpg" alt="отзыв">
   
-  var imageLinks = document.querySelectorAll('#feedback-slider-js .feedback__image')
+  var imageLinks = document.querySelectorAll('#feedback-slider-js .feedback__image');
   
-  for (var i = 0; i < imageLinks.length; i++) {
-    imageLinks[i].addEventListener('click', function (e) {
-      e.preventDefault()
+  for (var i = 0, countBlocks = imageLinks.length; i < countBlocks; i++) {
+    imageLinks[i].addEventListener('dblclick', function (e) {
+      e.preventDefault();
+      
       BigPicture({
         el: e.target,
         gallery: '#feedback-slider-js'
       });
     })
   }
-  
-
   
 })();
 

@@ -48,6 +48,8 @@ const PATH = {
     PROJECT_FOLDERS.START + "_libs/jquery/dist/jquery.min.js",
     PROJECT_FOLDERS.START + "_libs/slick-carousel/slick/slick.min.js",
     PROJECT_FOLDERS.START + "_libs/pushy/js/pushy.min.js",
+    PROJECT_FOLDERS.START + "_libs/jquery.maskedinput/src/jquery.maskedinput.js",
+    PROJECT_FOLDERS.START + "_libs/wow/dist/wow.min.js",
   ], //подключаем свои библиотеки
   scriptInput: [
     PROJECT_FOLDERS.START + "js/**/*.js"

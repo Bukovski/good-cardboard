@@ -135,7 +135,7 @@ window.onload = (function () {
     // adaptiveHeight: true,
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 992,
         settings: {
           arrows: true,
           prevArrow: '<button class="production-slider__arrow-prev">' + arrowSlider + '</button>',
@@ -166,7 +166,7 @@ window.onload = (function () {
       {
         breakpoint: 992,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 5,
         }
       },
     ]
@@ -204,27 +204,34 @@ window.onload = (function () {
   
   /*********************** яндекс карта ***********************/
   
-    // ymaps.ready(init);
+  function init() {
+    var map = new ymaps.Map("map-yandex-js", {
+      center: [ 54.75265557, 56.00205250 ],
+      zoom: 17,
+      controls: [ "zoomControl" ],
+      behaviors: [ "drag" ]
+    });
     
-    function init() {
-      var map = new ymaps.Map("map-yandex-js", {
-        center: [ 54.75265557, 56.00205250 ],
-        zoom: 17,
-        controls: [ "zoomControl" ],
-        behaviors: [ "drag" ]
+    var placemark = new ymaps.Placemark([ 54.75267419, 56.00203641 ], { //ставим метку на карте
+        balloonContent: "Добрый картон",
+        iconCaption: "Проспект октября, 46"
+      },
+      {
+        preset: 'islands#blueCircleDotIcon'
       });
-      
-      var placemark = new ymaps.Placemark([ 54.75267419, 56.00203641 ], { //ставим метку на карте
-          balloonContent: "Добрый картон",
-          iconCaption: "Проспект октября, 46"
-        },
-        {
-          preset: 'islands#blueCircleDotIcon'
-        });
-      
-      map.geoObjects.add(placemark);
-    }
+    
+    map.geoObjects.add(placemark);
+  }
   
+  ymaps.ready(init);
+  
+  /*********************** маски для ввода ***********************/
+  
+  // $(".input").mask("+7(999) 999-99-99");
+  
+  /*********************** анимация при скролле ***********************/
+  
+  // new WOW().init();
   
 })();
 

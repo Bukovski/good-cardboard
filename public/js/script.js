@@ -122,6 +122,60 @@ window.onload = (function () {
     closeHamburger();
   });
   
+  /*********************** модальное окно ***********************/
+  
+  var $modalWindow = $(".js-modal");
+  var $modalBack = $("#js-modal-background");
+  var $modalClose = $("#js-modal-close");
+  var $modalShow = $(".js-modal-show");
+  
+  function hideModalWindow() {
+    $modalBack.fadeOut(500);
+    $modalWindow.fadeOut(500);
+  }
+  
+  function showModalWindow(elem) {
+    $modalBack.fadeIn(500);
+    $(elem).fadeIn(500);
+  }
+  
+  function getAttributePosition(block) {
+    try {
+      var attr = block.attributes;
+      var attrLength = attr.length;
+      
+      for (var i = 0; i < attrLength; i++) {
+        if (attr[i].nodeName === "data-position") {
+          return attr[i].value;
+        }
+      }
+      
+      return "";
+    } catch (e) {
+      console.error("Don't find attribute position");
+      return "";
+    }
+  }
+  
+  $modalShow.on("click", function() {
+    var getButtonAttribute = getAttributePosition(this);
+    // console.dir(this.attributes[1].nodeName)
+    // console.dir(this.attributes[1].value)
+    $modalWindow.each(function (index, elem) {
+      if (getAttributePosition(elem) === getButtonAttribute) {
+        showModalWindow(elem);
+      }
+    });
+  });
+  
+  $modalBack.on("click", function() {
+    hideModalWindow();
+  });
+  
+  $modalClose.on("click", function(){
+    hideModalWindow();
+  });
+  
   /*********************** слайдер верхний сдвоенный ***********************/
   
   const arrowSlider = '<svg class="header-main__btn-icon"><use xlink:href="#arrow-small"></use></svg>';

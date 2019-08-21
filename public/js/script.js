@@ -281,11 +281,26 @@ window.onload = (function () {
   
   /*********************** маски для ввода ***********************/
   
-  // $(".input").mask("+7(999) 999-99-99");
+  $(".input").mask("+7(999) 999-99-99");
   
-  /*********************** анимация при скролле ***********************/
+  /*********************** увеличение фото при клике ***********************/
+  // <div id="feedback-slider-js">
+  // <img class="feedback__image" data-bp="./image/feedback/1big.jpg" src="./image/feedback/1.jpg" alt="отзыв">
+  // <img class="feedback__image" data-bp="./image/feedback/2big.jpg" src="./image/feedback/2.jpg" alt="отзыв">
   
-  // new WOW().init();
+  var imageLinks = document.querySelectorAll('#feedback-slider-js .feedback__image')
+  
+  for (var i = 0; i < imageLinks.length; i++) {
+    imageLinks[i].addEventListener('click', function (e) {
+      e.preventDefault()
+      BigPicture({
+        el: e.target,
+        gallery: '#feedback-slider-js'
+      });
+    })
+  }
+  
+
   
 })();
 

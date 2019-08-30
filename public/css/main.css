@@ -1796,6 +1796,7 @@ body {
 .map__list,
 .map__yandex__list {
   margin-left: 20px;
+  padding-right: 35px;
   list-style: none;
 }
 .map__item,

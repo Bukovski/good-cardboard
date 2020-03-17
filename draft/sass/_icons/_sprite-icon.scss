@@ -1,0 +1,78 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.sprite-about-us-1 {
+  background-image: url(../image/sprite.png);
+  background-position: -102px 0px;
+  width: 49px;
+  height: 51px;
+}
+.sprite-about-us-2 {
+  background-image: url(../image/sprite.png);
+  background-position: 0px -51px;
+  width: 50px;
+  height: 50px;
+}
+.sprite-about-us-3 {
+  background-image: url(../image/sprite.png);
+  background-position: -151px 0px;
+  width: 44px;
+  height: 51px;
+}
+.sprite-about-us-4 {
+  background-image: url(../image/sprite.png);
+  background-position: 0px 0px;
+  width: 51px;
+  height: 51px;
+}
+.sprite-about-us-5 {
+  background-image: url(../image/sprite.png);
+  background-position: -50px -51px;
+  width: 51px;
+  height: 42px;
+}
+.sprite-about-us-6 {
+  background-image: url(../image/sprite.png);
+  background-position: -51px 0px;
+  width: 51px;
+  height: 51px;
+}
+.sprite-mail-icon {
+  background-image: url(../image/sprite.png);
+  background-position: -151px -76px;
+  width: 20px;
+  height: 14px;
+}
+.sprite-map-maker {
+  background-image: url(../image/sprite.png);
+  background-position: -151px -51px;
+  width: 17px;
+  height: 25px;
+}
+.sprite-mobilephone-icon {
+  background-image: url(../image/sprite.png);
+  background-position: -168px -51px;
+  width: 15px;
+  height: 22px;
+}
+.sprite-wawe-line {
+  background-image: url(../image/sprite.png);
+  background-position: -102px -51px;
+  width: 46px;
+  height: 6px;
+}

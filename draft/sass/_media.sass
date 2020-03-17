@@ -1,0 +1,320 @@
+@import "vars"
+
+/*==========  Desktop First Method  ==========*/
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+  .header-main__call
+    font-size: 19px
+    
+  .header-banner__image-wrap
+    display: none
+    
+  .header-banner__wrap
+    justify-content: center
+    
+  .header-banner__content
+    width: 100%
+    text-align: center
+    
+  .header-banner__fields
+    flex-direction: column
+    align-items: center
+    
+  .header-banner__input
+    text-align: center
+    
+  .header-banner__btn
+    margin-top: 13px
+    
+  .header-banner .small-text
+    margin-left: 0
+    
+  .production
+    padding: 8px 0 25px
+    
+  .production__wrap
+    flex-wrap: wrap
+    
+  .production__slider
+    flex: 0 0 100%
+    order: 2
+    max-width: 100%
+    
+  .production__describe
+    flex: 1 1 100%
+    order: 1
+    
+  .production-mini-slider
+    display: none
+    
+  .popup-feedback
+    width: 685px
+    
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px)
+  .header-menu,
+  .header-main__btn-text
+    display: none
+  
+  .header-main
+    position: fixed
+    top: 0
+    width: 100%
+    min-width: 320px
+    padding-top: 0
+    background: $white
+    z-index: 10
+    
+  .header-main__wrap
+    height: 40px
+    
+  .header-main__logo--desktop
+    display: none
+    
+  .header-main__logo--mobile
+    display: inline-block
+    
+  .header-main__btn
+    margin-top: -2px
+    padding: 5px
+    
+  .header-main__btn-icon
+    width: 15px
+    height: 15px
+    padding: 0
+    
+  .header-main__call
+    height: 18px
+    font-size: 14px
+    
+  .header-main__call + a
+    border: none
+    
+  .header-main__contacts
+    display: flex
+    flex-direction: column
+  
+    margin-top: -6px
+    margin-left: auto
+    width: 145px
+    
+  .header-main__number
+    font-weight: 800
+    
+  .header-main__logo-wrap
+    width: 40px
+    
+  .hamburger,
+  #mobile-menu,
+  .site-overlay
+    display: inline-block
+  
+  .header-banner
+    margin-bottom: -25px
+    
+  .header-banner__title
+    font-size: 30px
+    line-height: 30px
+    color: $orange
+    
+  .header-banner__subtitle
+    font-size: 23px
+    
+  .header-banner__flag
+    font-size: 18px
+    
+  .header-banner__input
+    width: 90%
+    
+  .about-us__description
+    flex-direction: column
+    
+  .about-us__carts
+    justify-content: center
+    flex: 1 1 100%
+  
+    margin: 4px 0
+    padding: 10px 0
+    
+  .production__describe
+    text-align: center
+    
+  .production__title
+    font-size: 20px
+    text-transform: uppercase
+    
+  .clients
+    padding-bottom: 20px
+    
+  .clients__wrap
+    width: 140px
+    height: 85px
+    margin: 4px 0
+    
+  .popup-feedback
+    width: 400px
+    padding-bottom: 15px
+  
+  .popup-feedback__form
+    margin-top: 10px
+    
+  .popup-feedback__title
+    font-size: 26px
+    
+  .popup-feedback__inner-title
+    font-size: 22px
+    
+  .popup-feedback__fields
+    flex-direction: column
+    align-items: center
+    
+  .popup-feedback__input
+    text-align: center
+    
+  .popup-feedback__btn
+    margin-top: 15px
+    margin-left: 0
+    padding: 15px 30px
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+  .header-banner
+    background-color: $blackLight
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../image/header/main-bg-768.jpg") center no-repeat
+    background-size: cover
+    
+  .header-banner__content
+    padding: 60px 0 15px
+  
+  .header-banner__title
+    font-size: 22px
+    line-height: 24px
+  
+  .header-banner__subtitle
+    font-size: 18px
+  
+  .header-banner__form
+    background: transparent
+    
+  .header-banner__flag
+    font-size: 15px
+    
+  .header-banner__text
+    font-size: 18px
+  
+  .header-banner__input
+    width: 100%
+    
+  .about-us
+    padding-top: 18px
+    padding-bottom: 25px
+    
+  .about-us__handle
+    flex-direction: column
+
+  .about-us__title
+    font-size: 30px
+    
+  .about-us__subtitle
+    font-size: 14px
+    
+  .product
+    padding: 20px 0 0
+    
+  .description
+    &::after
+      content: none
+      
+  .description__title
+    font-size: 22px
+    
+  .product__title
+    font-size: 18px
+    
+  .offer
+    background-color: $blackLight
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../image/offer/offer-bg-768.jpg") center no-repeat
+    background-size: cover
+  
+  .offer__title
+    font-size: 20px
+    font-weight: 700
+    line-height: 24px
+    
+  .offer__inner-title
+    font-size: 16px
+    
+  .offer__subtitle
+    font-size: 14px
+  
+  .production__text
+    font-size: 14px
+    font-weight: 300
+    line-height: 18px
+  
+  .map
+    height: 780px
+    text-align: center
+  
+    &__address::before,
+    &__phones::before,
+    &__mail::before
+      display: none
+    
+  .map__wrap
+    position: relative
+    left: auto
+    max-width: 100%
+    height: 360px
+    margin: 0 auto
+    border-radius: 0
+    text-align: center
+    
+  .map__list
+    margin-left: 0
+    padding: 0
+    
+  .map__btn
+    margin: 0 auto
+    
+  .map__yandex
+    position: relative
+    display: inline-block
+    box-sizing: border-box
+    padding: 15px
+    height: 420px
+    //max-width: 100%
+    //width: auto
+
+  .popup-feedback
+    width: 300px
+    
+  .popup-feedback__close
+    top: -21px
+    right: 9px
+    font-size: 45px
+    
+  .popup-feedback__header
+    margin-top: 40px
+    font-size: 18px
+  
+  .popup-feedback__title
+    font-size: 20px
+  
+  .popup-feedback__inner-title
+    font-size: 16px
+    
+  .popup-feedback__text
+    margin: 0
+    font-size: 16px
+   
+  .popup-feedback__input
+    width: 240px
+  
+  .popup-feedback__btn
+    margin-top: 10px
+  
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px)
+  .popup-feedback
+    left: 160px

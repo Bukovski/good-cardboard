@@ -29,6 +29,9 @@ const gulp = require("gulp"),
   ngrok = require('ngrok'),
   browserSync = require("browser-sync").create(); // Browser Sync для перезагрузки страницы
 
+const ghPages = require('gulp-gh-pages'); // deploy to github
+
+
 const PROJECT_FOLDERS = {
   START: "./draft/",
   PUBLIC: "./public/"
@@ -352,7 +355,7 @@ gulp.task('sprite-svg', spriteSVG); //SVG спрайт из image/sprite/svg-spr
 gulp.task("sprite-svg2font", spriteSvg2Font); //font icons из svg image/sprite/svg-sprite и создаст scss в sass/_icons/_font-icon.scss и создает шрифтовые инконки в fonts/font-icon
 
 gulp.task("image-min", imageMin); //gulp image-min   сжимаем все картинки и переносим в public/image
-  gulp.task("image-responsive", imageResponsive); //gulp image-min   сжимаем все картинки и переносим в public/image
+gulp.task("image-responsive", imageResponsive); //gulp image-min   сжимаем все картинки и переносим в public/image
 
 gulp.task("dev", watch); //gulp dev    запустит сервер. Откроет все в браузере и будет обновлять страницу при любом измненении в файлах sass scss html
 gulp.task("server", showServer); //gulp server реальный сервер
@@ -360,3 +363,7 @@ gulp.task("server", showServer); //gulp server реальный сервер
 gulp.task("production", gulp.series(clean, favicon, imageMin, polyfillJS, script, libsJS, minJs, gulp.parallel(styleProd, fonts, template))); //gulp production   минимицированные и причессаные стили, перенос шрифтов и html, сжатие картинок
 
 gulp.task("default", gulp.series("dev")); //gulp
+
+gulp.task('deploy', function() {
+  return gulp.src('./public/**/*').pipe(ghPages());
+});

@@ -1,0 +1,15 @@
+{
+  "name": "bigpicture",
+  "homepage": "https://github.com/henrygd/bigpicture",
+  "version": "2.1.3",
+  "_release": "2.1.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.1.3",
+    "commit": "5a2a3d4cb883ceb4cdc3f5f72b09a1aebc69be40"
+  },
+  "_source": "https://github.com/henrygd/bigpicture.git",
+  "_target": "^2.1.3",
+  "_originalSource": "bigpicture",
+  "_direct": true
+}

@@ -365,5 +365,7 @@ gulp.task("production", gulp.series(clean, favicon, imageMin, polyfillJS, script
 gulp.task("default", gulp.series("dev")); //gulp
 
 gulp.task('deploy', function() {
-  return gulp.src('./public/**/*').pipe(ghPages());
+  return gulp.src("**/*", { cwd: "public" }).pipe(ghPages({
+    branch: "gh-pages"
+  }));
 });

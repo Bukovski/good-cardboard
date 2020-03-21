@@ -1,0 +1,35 @@
+{
+	"name": "bigpicture",
+	"version": "2.1.3",
+	"description": "Lightweight image and video viewer, supports youtube / vimeo",
+	"main": "index.js",
+	"scripts": {
+		"start": "cd example_page && lite-server",
+		"dev": "npm run start",
+		"build": "gulp build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/henrygd/bigpicture"
+	},
+	"keywords": [
+		"lightbox",
+		"gallery",
+		"photo",
+		"image",
+		"video",
+		"youtube",
+		"vimeo",
+		"iframe"
+	],
+	"author": "Henry Dollman <hank@henrygd.me>",
+	"license": "MIT",
+	"devDependencies": {
+		"gulp": "^3.9.1",
+		"gulp-rename": "^1.4.0",
+		"gulp-replace": "^1.0.0",
+		"gulp-uglify": "^3.0.1",
+		"lite-server": "^2.4.0",
+		"pump": "^3.0.0"
+	}
+}
